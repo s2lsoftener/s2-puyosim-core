@@ -11,7 +11,7 @@
   "keywords": [
     "puyo"
   ],
-  "author": "Phong Tran",
+  "author": "Phong Tran <s2@puyonexus.com> (http://www.puyonexus.com/)",
   "bugs": {
     "url" : "https://github.com/s2lsoftener/s2-puyosim-core/issues",
     "email" : "project@hostname.com"
@@ -27,5 +27,9 @@
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2"
   },
-  "homepage": "https://github.com/s2lsoftener/s2-puyosim-core"
+  "homepage": "https://github.com/s2lsoftener/s2-puyosim-core",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s2lsoftener/s2-puyosim-core.git"
+  }
 }
