@@ -63,6 +63,9 @@ console.log(`
   Total Score: ${simulator.totalScore}
   Total Garbage: ${simulator.totalGarbage}
 `);
+// Chain Length : 1
+// Total Score: 40
+// Total Garbage: 0
 
 // Simulate the rest of the chain.
 simulator.simulateChain();
