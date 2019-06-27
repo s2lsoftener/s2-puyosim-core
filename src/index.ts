@@ -591,7 +591,9 @@ export default class ChainsimCore {
    * Simulate the current link. The callback function supplied in the constructor will get called when this method finishes.
    * @param param0 An options object. Supply { repeat: true } to make simulateLink simulate the full chain.
    */
-  public simulateLink({ repeat }: { repeat: boolean }): ChainsimCore {
+  public simulateLink({ repeat }: { repeat?: boolean } = {}): ChainsimCore {
+    const repeatSimulation = repeat || false;
+
     this.checkForDrops();
     let performedDrop = false;
     let performedPop = false;
@@ -634,7 +636,7 @@ export default class ChainsimCore {
 
     this.emitState();
 
-    if (repeat && (performedDrop || performedPop)) {
+    if (repeatSimulation && (performedDrop || performedPop)) {
       return this.simulateLink({ repeat: true });
     } else {
       return this;

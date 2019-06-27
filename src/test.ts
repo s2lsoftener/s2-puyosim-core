@@ -25,23 +25,47 @@ const input = MatrixFunctions.transposeMatrix(testMatrix);
 // Create a new simulator object.
 const simulator = new ChainsimCore({ inputMatrix: input });
 
-// Simulate the chain.
-simulator.simulateChain();
+// Simulate a single step of the chain.
+simulator.simulateLink();
 
-// Result
 console.log(simulator.matrixText);
-/* Expected output:
-[ [ '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' ],
-  [ '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' ],
-  [ '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' ],
-  [ '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'J' ],
-  [ '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' ],
-  [ '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'B' ] ]
+/*
+[ [ '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'R' ],
+  [ '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'R', 'R' ],
+  [ '0', '0', '0', '0', '0', '0', '0', 'J', 'J', 'J', 'B', 'R', 'B' ],
+  [ '0', '0', '0', '0', '0', '0', '0', 'J', 'J', 'J', 'Y', 'B', 'B' ],
+  [ '0', '0', '0', '0', '0', '0', 'G', 'G', 'R', 'R', 'P', 'Y', 'Y' ],
+  [ '0', '0', '0', '0', 'G', 'G', 'R', 'R', 'B', 'P', 'P', 'Y', 'P' ] ]
 */
 
-// Re-transposed result
 console.log(MatrixFunctions.transposeMatrix(simulator.matrixText));
-/* Expected output:
+/*
+[ [ '0', '0', '0', '0', '0', '0' ],
+  [ '0', '0', '0', '0', '0', '0' ],
+  [ '0', '0', '0', '0', '0', '0' ],
+  [ '0', '0', '0', '0', '0', '0' ],
+  [ '0', '0', '0', '0', '0', 'G' ],
+  [ '0', '0', '0', '0', '0', 'G' ],
+  [ '0', '0', '0', '0', 'G', 'R' ],
+  [ '0', '0', 'J', 'J', 'G', 'R' ],
+  [ '0', '0', 'J', 'J', 'R', 'B' ],
+  [ '0', '0', 'J', 'J', 'R', 'P' ],
+  [ '0', '0', 'B', 'Y', 'P', 'P' ],
+  [ '0', 'R', 'R', 'B', 'Y', 'Y' ],
+  [ 'R', 'R', 'B', 'B', 'Y', 'P' ] ]
+*/
+
+console.log(`
+  Chain Length: ${simulator.chainLength}
+  Total Score: ${simulator.totalScore}
+  Total Garbage: ${simulator.totalGarbage}
+`);
+
+// Simulate the rest of the chain.
+simulator.simulateChain();
+
+console.log(MatrixFunctions.transposeMatrix(simulator.matrixText));
+/*
 [ [ '0', '0', '0', '0', '0', '0' ],
   [ '0', '0', '0', '0', '0', '0' ],
   [ '0', '0', '0', '0', '0', '0' ],
