@@ -3,8 +3,10 @@
   "version": "0.2.4",
   "description": "TypeScript module for calculating Puyo chain states",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "ts-node src/test.ts"
   },
   "keywords": [
     "puyo"
