@@ -1,6 +1,6 @@
 {
   "name": "s2-puyosim-core",
-  "version": "0.2.424",
+  "version": "0.3.0",
   "description": "TypeScript module for calculating Puyo chain states",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

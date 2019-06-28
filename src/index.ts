@@ -83,7 +83,7 @@ export default class ChainsimCore {
   //   callback?: (state: unknown) => unknown,
   //   settings: CoreSettings = new CoreSettings()
   // ) {
-  public constructor({ inputMatrix, callback, settings }: ChainsimCoreOptions) {
+  public constructor({ inputMatrix, callback, settings }: ChainsimCoreOptions = {}) {
     this.inputMatrix = inputMatrix || createUniformArray('0', 6, 13);
     this.settings = settings || new CoreSettings();
     this.callback = callback || ((): void => {});
